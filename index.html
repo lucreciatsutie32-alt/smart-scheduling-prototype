@@ -2853,7 +2853,7 @@
       navParents.forEach(parent => {
         const group = parent.dataset.navGroup;
         const childLinks = navLinks.filter(link => link.classList.contains('nav-child') && (link.dataset.nav === group || link.dataset.nav?.includes(group.replace(/s$/, ''))));
-        parent.classList.toggle('hidden-by-role', childLinks.length > 0 && childLinks.every(link => link.classList.contains('hidden-by-role')));
+        parent.classList.toggle('hidden-by-role', roleSelect.value === 'minister' && group === 'directives' || childLinks.length > 0 && childLinks.every(link => link.classList.contains('hidden-by-role')));
       });
 
       document.querySelectorAll('[data-role]').forEach(el => {
